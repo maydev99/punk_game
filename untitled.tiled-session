@@ -3,9 +3,10 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "assets/tiles/level1.tmx",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "assets/tiles/background.tsx": {
             "dynamicWrapping": true,
@@ -13,37 +14,78 @@
             "scaleInEditor": 1
         },
         "assets/tiles/background_gradient.tsx": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "assets/tiles/level1.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
             "scale": 0.65,
-            "selectedLayer": 1,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 959.9999999999999,
-                "y": 768.4615384615383
+                "x": 946.1538461538461,
+                "y": 730
             }
         },
+        "assets/tiles/level1.tmx#sky1": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "assets/tiles/level1.tmx#sky2": {
+            "scaleInDock": 1
+        },
+        "assets/tiles/level2.tmx": {
+            "expandedObjectLayers": [
+                4,
+                3
+            ],
+            "scale": 0.6541145833333334,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 958.5476550680786,
+                "y": 644.3825145314116
+            }
+        },
+        "assets/tiles/punky_64.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "assets/tiles/spritesheet.tsx": {
-            "dynamicWrapping": false
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
+    "frame.defaultDuration": 61,
     "last.imagePath": "/Users/michaelmay/AndroidStudioProjects/punk_game/assets/images",
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": null,
     "map.tileHeight": 64,
     "map.tileWidth": 64,
     "openFiles": [
+        "assets/tiles/spritesheet.tsx",
+        "assets/tiles/level1.tmx",
+        "assets/tiles/background_gradient.tsx",
+        "assets/tiles/punky_64.tsx"
     ],
     "project": "untitled.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "assets/tiles/background.tsx",
-        "assets/tiles/level1.tmx"
+        "assets/tiles/background_gradient.tsx",
+        "assets/tiles/punky_64.tsx",
+        "assets/tiles/spritesheet.tsx",
+        "assets/tiles/level1.tmx",
+        "assets/tiles/background.tsx"
     ],
+    "tileset.embedInMap": true,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 1280,
-        "width": 1920
+        "height": 64,
+        "width": 64
     },
-    "tileset.type": 0
+    "tileset.type": 1
 }

@@ -42,14 +42,10 @@ class Door extends SpriteComponent with CollisionCallbacks, HasGameRef<GameMain>
     if (other is Player) {
       print('Door');
 
-      /*if(gameRef.playerData.key.value) {
-        gameRef.makeAToast('Level Complete');
-        other.removeFromParent();
-        onPlayerEnter?.call();
-        gameRef.playerData.key.value = false;
-      } else {
-        gameRef.makeAToast('Locked');
-      }*/
+      //other.removeFromParent();
+      onPlayerEnter?.call();
+
+
 
 
     }

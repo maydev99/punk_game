@@ -1,14 +1,22 @@
+import 'dart:ui';
+
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame/image_composition.dart';
+import 'package:flame/extensions.dart';
+
 import 'package:flame/input.dart';
-import 'package:flutter/services.dart';
 import 'package:punk_game/actors/platform.dart';
 import 'package:punk_game/game_main.dart';
 
 
-class Player extends SpriteComponent with CollisionCallbacks, KeyboardHandler, HasGameRef<GameMain> {
+enum PlayerState {
+  run,
+  stand,
+}
+
+
+class Player extends SpriteAnimationGroupComponent with CollisionCallbacks, KeyboardHandler, HasGameRef<GameMain> {
   int _hAxisInput = 0;
   bool _jumpInput = false;
   bool _isOnGround = false;
@@ -19,38 +27,44 @@ class Player extends SpriteComponent with CollisionCallbacks, KeyboardHandler, H
   final Vector2 _up = Vector2(0, -1);
   late Vector2 _minClamp;
   late Vector2 _maxClamp;
+  late Vector2 _myPosition;
+  late Vector2 _mySize;
 
-  Player(
-      Image image, {
-        required Rect levelBounds,
-        Vector2? position,
-        Vector2? size,
-        Vector2? scale,
-        double? angle,
-        Anchor? anchor,
-        int? priority,
-      }) : super.fromImage(
-    image,
-    srcPosition: Vector2(64, 2 * 64),
-    srcSize: Vector2.all(62),
-    position: position,
-    size: size,
-    scale: scale,
-    angle: angle,
-    anchor: anchor,
-    priority: priority,
-  ) {
-    // Since anchor point for player is at the center,
-    // min and max clamp limits will have to be adjusted by
-    // half-size of player.
-    final halfSize = size! / 2;
-    _minClamp = levelBounds.topLeft.toVector2() + halfSize;
-    _maxClamp = levelBounds.bottomRight.toVector2() - halfSize;
-  }
+  static final _animationMap = {
+    PlayerState.run: SpriteAnimationData.sequenced(amount: 3, stepTime: 0.1, textureSize: Vector2(64,64)),
+    PlayerState.stand: SpriteAnimationData.sequenced(amount: 1, stepTime: 1, textureSize: Vector2(64,64))
+  };
+
+
+ Player(Image image, {
+   required Rect levelBounds,
+   Vector2? position,
+   Vector2? size,
+   Vector2? scale,
+   double? angle,
+   Anchor? anchor,
+   int? priority,
+}) : super.fromFrameData(image, _animationMap) {
+
+   // Since anchor point for player is at the center,
+   // min and max clamp limits will have to be adjusted by
+   // half-size of player.
+
+   _myPosition = position!;
+   _mySize = size!;
+
+   final halfSize = size / 2;
+   _minClamp = levelBounds.topLeft.toVector2() + halfSize;
+   _maxClamp = levelBounds.bottomRight.toVector2() - halfSize;
+ }
 
   @override
   Future<void>? onLoad() {
     //debugMode = true;
+    position = _myPosition;
+    anchor = Anchor.center;
+    size = _mySize;
+    priority = 3;
     add(CircleHitbox());
     return super.onLoad();
 
@@ -59,6 +73,7 @@ class Player extends SpriteComponent with CollisionCallbacks, KeyboardHandler, H
   @override
   void onMount() {
     gameRef.tapComponent.connectPLayer(this);
+    current = PlayerState.stand;
     super.onMount();
   }
 
@@ -68,9 +83,20 @@ class Player extends SpriteComponent with CollisionCallbacks, KeyboardHandler, H
     _velocity.y += _gravity;
 
     // print(_velocity.y);
+    if(_velocity.x != 0) {
+      current = PlayerState.run;
+    } else {
+      current = PlayerState.stand;
+    }
 
     if(_velocity.y < _gravity) {
       _isOnGround = false;
+    }
+
+    //Keeps pLayer from sinking into floor on spawn
+    //Map Y = 1280  1.5 * Player height (96px)
+    if(position.y > 1184) {
+      position.y = 1184;
     }
 
 

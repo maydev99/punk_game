@@ -20,4 +20,16 @@ class Background extends SpriteComponent {
       angle: angle,
       anchor: anchor,
       priority: priority);
+
+  @override
+  void onMount() {
+    priority = 0;
+    super.onMount();
+  }
+
+  @override
+  Future<void>? onLoad() {
+
+    return super.onLoad();
+  }
 }
