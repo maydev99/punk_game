@@ -6,6 +6,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/extensions.dart';
 
 import 'package:flame/input.dart';
+import 'package:flutter/services.dart';
 import 'package:punk_game/actors/platform.dart';
 import 'package:punk_game/game_main.dart';
 
@@ -127,7 +128,7 @@ class Player extends SpriteAnimationGroupComponent with CollisionCallbacks, Keyb
 
 
 
- /* @override
+  @override
   bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     print('key event');
     _hAxisInput = 0;
@@ -135,7 +136,7 @@ class Player extends SpriteAnimationGroupComponent with CollisionCallbacks, Keyb
     _hAxisInput += keysPressed.contains(LogicalKeyboardKey.keyD) ? 1 : 0;
     _jumpInput = keysPressed.contains(LogicalKeyboardKey.space);
     return true;
-  }*/
+  }
 
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {

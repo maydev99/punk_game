@@ -3,11 +3,15 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "assets/tiles/level1.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "/Users/michaelmay/AndroidStudioProjects/jungle_adventure/assets/tiles/spritesheet2.tsx": {
+            "scaleInDock": 1
+        },
         "assets/tiles/background.tsx": {
             "dynamicWrapping": true,
             "scaleInDock": 1,
@@ -23,11 +27,14 @@
                 3
             ],
             "scale": 0.65,
-            "selectedLayer": 3,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 946.1538461538461,
                 "y": 730
             }
+        },
+        "assets/tiles/level1.tmx#directions_sprite": {
+            "scaleInDock": 1
         },
         "assets/tiles/level1.tmx#sky1": {
             "dynamicWrapping": true,
@@ -42,11 +49,11 @@
                 4,
                 3
             ],
-            "scale": 0.6541145833333334,
+            "scale": 0.65,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 958.5476550680786,
-                "y": 644.3825145314116
+                "x": 959.9999999999999,
+                "y": 640.7692307692307
             }
         },
         "assets/tiles/punky_64.tsx": {
@@ -67,18 +74,15 @@
     "map.tileHeight": 64,
     "map.tileWidth": 64,
     "openFiles": [
-        "assets/tiles/spritesheet.tsx",
-        "assets/tiles/level1.tmx",
-        "assets/tiles/background_gradient.tsx",
-        "assets/tiles/punky_64.tsx"
     ],
     "project": "untitled.tiled-project",
     "property.type": "object",
     "recentFiles": [
         "assets/tiles/background_gradient.tsx",
-        "assets/tiles/punky_64.tsx",
-        "assets/tiles/spritesheet.tsx",
         "assets/tiles/level1.tmx",
+        "assets/tiles/spritesheet.tsx",
+        "assets/tiles/level2.tmx",
+        "assets/tiles/punky_64.tsx",
         "assets/tiles/background.tsx"
     ],
     "tileset.embedInMap": true,
@@ -87,5 +91,5 @@
         "height": 64,
         "width": 64
     },
-    "tileset.type": 1
+    "tileset.type": 0
 }

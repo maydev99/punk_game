@@ -10,8 +10,9 @@ import 'package:punk_game/game_main.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Flame.device.fullScreen();
-  Flame.device.setLandscape();
+  await Flame.device.setLandscape();
+  await Flame.device.fullScreen();
+
   final _game = GameMain();
   await GetStorage.init();
   runApp(GameWidget(game: _game));

@@ -32,7 +32,7 @@ class GameMain extends FlameGame with HasCollisionDetection, HasTappableComponen
 
 
     camera.viewport = FixedResolutionViewport(Vector2(900, 450));
-    loadLevel('level2.tmx');
+    loadLevel('level1.tmx');
 
 
     return super.onLoad();
